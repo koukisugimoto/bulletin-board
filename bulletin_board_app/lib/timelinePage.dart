@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'new_post.dart';
+import 'recommendation.dart';
+import 'follow_users_posts.dart';
 
 class timeline extends StatelessWidget {
+
+  final _pages = <Widget> [
+    newPostPage(),
+    recommendationPage(),
+    followUsersPosts(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +19,8 @@ class timeline extends StatelessWidget {
           length: 3,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              TabBar(
+            children: [
+              const TabBar(
                 labelColor: Colors.blue,
                 unselectedLabelColor: Colors.black12,
                 tabs: [Tab(text: '新着'), Tab(text: 'おすすめ'), Tab(text: 'フォロー')],
@@ -19,9 +28,9 @@ class timeline extends StatelessWidget {
               Expanded(
                   child: TabBarView(
                       children: [
-                        Center(child: Text('New Posts',)),
-                        Center(child: Text('recommendation')),
-                        Center(child: Text('Follow Post')),
+                        _pages[0],
+                        _pages[1],
+                        _pages[2],
                       ]
                   )
               )
