@@ -1,49 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'search_page.dart';
+import 'message_page.dart';
+import 'my_profile_page.dart';
+import 'timelinePage.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
 
-
   @override
-  _homePage createState() => _homePage();
+  _home createState() => _home();
 }
 
-class _homePage extends State<home> {
+class _home extends State<home> {
 
   int _selectedIndex = 0;
+
+  final _pages = <Widget>[
+    timeline(),
+    serchPage(),
+    messagePage(),
+    myProfile(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: DefaultTabController(
-          length: 3,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TabBar(
-                labelColor: Colors.blue,
-                unselectedLabelColor: Colors.black12,
-                tabs: [Tab(text: '新着'), Tab(text: 'おすすめ'), Tab(text: 'フォロー')],
-              ),
-              Expanded(
-                  child: TabBarView(
-                      children: [
-                        Center(child: Text('New Posts' + '$_selectedIndex'),),
-                        Center(child: Text('recommendation' + '$_selectedIndex'),),
-                        Center(child: Text('Follow Post' + '$_selectedIndex'),)
-                      ]
-                  )
-              )
-            ],
-          ),
-        ),
-      ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem> [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             label: 'Home',
             icon: Icon(Icons.home_outlined),
@@ -78,6 +65,5 @@ class _homePage extends State<home> {
       _selectedIndex = index;
     });
   }
-
 
 }

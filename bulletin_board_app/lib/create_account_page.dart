@@ -33,7 +33,7 @@ class createAccountPage extends StatelessWidget{
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => followTopicPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => followTopicPage(), fullscreenDialog: true));
                 },
                 child: Text('送信', style: TextStyle(fontSize: 20.sp),),
             ),

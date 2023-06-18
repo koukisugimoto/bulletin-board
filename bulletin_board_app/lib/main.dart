@@ -27,6 +27,12 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
+          // routes: {
+          //   '/':(context) => const home(),
+          //   '/1':(context) => serchPage(),
+          //   '/2':(context) => messagePage(),
+          //   '/3':(context) => myProfile(),
+          // },
           home: const MyHomePage(title: 'First Method',),
         );
       },
@@ -79,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10)
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => home()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const home()));
               },
               child: Text('ログイン', style: TextStyle(fontSize: 25.sp, color: Colors.white)),
             )

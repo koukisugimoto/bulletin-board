@@ -8,7 +8,7 @@ class followTopicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('気になるトピックをフォロー'),
+        title: const Text('気になるトピックをフォロー'),
         automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
