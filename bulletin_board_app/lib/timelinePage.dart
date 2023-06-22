@@ -11,9 +11,12 @@ class timeline extends StatelessWidget {
     followUsersPosts(),
   ];
 
+  // List<Widget> posts = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
       body: SafeArea(
         child: DefaultTabController(
           length: 3,
@@ -21,8 +24,9 @@ class timeline extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const TabBar(
-                labelColor: Colors.blue,
-                unselectedLabelColor: Colors.black12,
+                indicatorColor: Colors.white,
+                labelStyle: TextStyle(fontSize: 19, color: Colors.white),
+                unselectedLabelStyle: TextStyle(fontSize: 15, color: Colors.white),
                 tabs: [Tab(text: '新着'), Tab(text: 'おすすめ'), Tab(text: 'フォロー')],
               ),
               Expanded(
@@ -38,10 +42,13 @@ class timeline extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {},
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
+      //   child: const Icon(Icons.add),
+      //   onPressed: () {
+      //       posts.add(const Text('add post'));
+      //   },
+      // ),
     );
   }
 }

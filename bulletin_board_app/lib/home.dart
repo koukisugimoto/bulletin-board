@@ -28,6 +28,9 @@ class _home extends State<home> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
@@ -35,25 +38,21 @@ class _home extends State<home> {
             label: 'Home',
             icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             label: 'search',
             icon: Icon(Icons.search_outlined),
             activeIcon: Icon(Icons.search),
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             label: 'message',
             icon: Icon(Icons.message_outlined),
             activeIcon: Icon(Icons.message),
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             label: 'myPage',
             icon: Icon(Icons.person_outline),
             activeIcon: Icon(Icons.person),
-            backgroundColor: Colors.blue,
           ),
         ],
       ),
