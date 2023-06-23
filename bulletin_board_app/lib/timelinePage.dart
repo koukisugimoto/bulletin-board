@@ -3,6 +3,11 @@ import 'new_post.dart';
 import 'recommendation.dart';
 import 'follow_users_posts.dart';
 
+class data {
+  String text = "sample text";
+
+}
+
 class timeline extends StatelessWidget {
 
   final _pages = <Widget> [
@@ -10,8 +15,6 @@ class timeline extends StatelessWidget {
     recommendationPage(),
     followUsersPosts(),
   ];
-
-  // List<Widget> posts = [];
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +45,6 @@ class timeline extends StatelessWidget {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
-      //   child: const Icon(Icons.add),
-      //   onPressed: () {
-      //       posts.add(const Text('add post'));
-      //   },
-      // ),
     );
   }
 }

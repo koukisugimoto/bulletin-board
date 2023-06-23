@@ -20,15 +20,6 @@ class _newPostPage extends State<newPostPage> {
         body: Column(
           children: posts,
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
-          child: const Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              posts.add(const Text('add post'));
-            });
-          },
-      ),
       ),
     );
   }

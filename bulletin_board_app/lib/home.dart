@@ -56,6 +56,11 @@ class _home extends State<home> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
+        child: const Icon(Icons.add),
+        onPressed: () {},
+      ),
     );
   }
 
