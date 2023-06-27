@@ -4,6 +4,9 @@ import 'search_page.dart';
 import 'message_page.dart';
 import 'my_profile_page.dart';
 import 'timelinePage.dart';
+import 'item.dart';
+import 'item_provider.dart';
+import 'package:provider/provider.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -25,6 +28,8 @@ class _home extends State<home> {
 
   @override
   Widget build(BuildContext context) {
+    final itemListProvider = Provider.of<ItemListProvider>(context);
+
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -57,9 +62,11 @@ class _home extends State<home> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
-        child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          final newItem = Item('New Item');
+          itemListProvider.addItem(newItem);
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

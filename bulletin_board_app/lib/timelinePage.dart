@@ -3,11 +3,6 @@ import 'new_post.dart';
 import 'recommendation.dart';
 import 'follow_users_posts.dart';
 
-class data {
-  String text = "sample text";
-
-}
-
 class timeline extends StatelessWidget {
 
   final _pages = <Widget> [

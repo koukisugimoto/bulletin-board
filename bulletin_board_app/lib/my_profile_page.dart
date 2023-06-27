@@ -3,31 +3,88 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class myProfile extends StatelessWidget {
 
+  int followCount = 0;
+  int followerCount = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(170, 171, 202, 1),
-      body: Column(
-        children: [
-          Stack(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(25),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: double.infinity,
-                height: 250.h,
-                color: Colors.white,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 40,
+                        backgroundImage: NetworkImage('URL_OF_USER_IMAGE'),
+                      ),
+                      const SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'ユーザ名',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'ユーザID',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.menu),
+                  ),
+                ],
               ),
-              SizedBox(
-                width: double.infinity,
-                height: 20.h,
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {print('follow button');},
+                    child: Text(
+                      '$followCount'+' フォロー',
+                      style: const TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.w,),
+                  GestureDetector(
+                    onTap: () {print('follower button');},
+                    child: Text(
+                      '$followerCount'+' フォロー',
+                      style: const TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                width: 100.w,
-                height: 100.h,
-                color: Colors.blue,
+              const SizedBox(height: 10),
+              const Text(
+                'ユーザが自由に記載したテキスト',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
-        ],
+        )
       ),
     );
   }
