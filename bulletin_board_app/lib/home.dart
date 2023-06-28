@@ -61,13 +61,6 @@ class _home extends State<home> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final newItem = Item('New Item');
-          itemListProvider.addItem(newItem);
-        },
-        child: Icon(Icons.add),
-      ),
     );
   }
 

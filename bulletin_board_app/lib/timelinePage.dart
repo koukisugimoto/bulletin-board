@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'new_post.dart';
 import 'recommendation.dart';
 import 'follow_users_posts.dart';
+import 'package:provider/provider.dart';
+import 'item.dart';
+import 'item_provider.dart';
 
 class timeline extends StatelessWidget {
 
@@ -13,6 +16,8 @@ class timeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final itemListProvider = Provider.of<ItemListProvider>(context);
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
       body: SafeArea(
@@ -39,6 +44,14 @@ class timeline extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(16, 5, 71, 1),
+        onPressed: () {
+          final newItem = Item('New Item');
+          itemListProvider.addItem(newItem);
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

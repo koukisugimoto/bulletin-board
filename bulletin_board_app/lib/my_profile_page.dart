@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'item_provider.dart';
+import 'item.dart';
 
-class myProfile extends StatelessWidget {
+class myProfile extends StatefulWidget {
+
+  @override
+  _myProfile createState() => _myProfile();
+}
+
+class _myProfile extends State<myProfile> {
 
   int followCount = 0;
   int followerCount = 1;
 
   @override
   Widget build(BuildContext context) {
+    final itemListProvider = Provider.of<ItemListProvider>(context);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -17,12 +28,13 @@ class myProfile extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
                       const CircleAvatar(
                         radius: 40,
-                        backgroundImage: NetworkImage('URL_OF_USER_IMAGE'),
+                        backgroundColor: Colors.blue,
                       ),
                       const SizedBox(width: 16),
                       Column(
@@ -55,7 +67,7 @@ class myProfile extends StatelessWidget {
               Row(
                 children: [
                   GestureDetector(
-                    onTap: () {print('follow button');},
+                    onTap: () {},
                     child: Text(
                       '$followCount'+' フォロー',
                       style: const TextStyle(
@@ -65,9 +77,9 @@ class myProfile extends StatelessWidget {
                   ),
                   SizedBox(width: 10.w,),
                   GestureDetector(
-                    onTap: () {print('follower button');},
+                    onTap: () {},
                     child: Text(
-                      '$followerCount'+' フォロー',
+                      '$followerCount'+' フォロワー',
                       style: const TextStyle(
                         fontSize: 16,
                       ),
@@ -82,6 +94,21 @@ class myProfile extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
+              // ListView.builder(
+              //   itemCount: itemListProvider.items.length,
+              //   itemBuilder: (context, index) {
+              //     final item = itemListProvider.items[index];
+              //     return ListTile(
+              //       title: Text(item.name),
+              //       trailing: IconButton(
+              //         icon: const Icon(Icons.delete),
+              //         onPressed: () {
+              //           itemListProvider.removeItem(item);
+              //         },
+              //       ),
+              //     );
+              //   },
+              // ),
             ],
           ),
         )
